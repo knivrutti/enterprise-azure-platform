@@ -1,2 +1,2 @@
-# Remote backend configuration
-# Will be configured in future labs.
+# Remote backend configuration.
+# Will be implemented using Azure Storage.
