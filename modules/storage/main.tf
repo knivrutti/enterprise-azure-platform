@@ -3,12 +3,12 @@ resource "azurerm_storage_account" "this" {
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+  account_tier             = var.account_tier
+  account_replication_type = var.replication_type
 
-  min_tls_version               = "TLS1_2"
-  https_traffic_only_enabled    = true
-  public_network_access_enabled = false
+  min_tls_version               = var.min_tls_version
+  https_traffic_only_enabled    = var.https_traffic_only_enabled
+  public_network_access_enabled = var.public_network_access_enabled
 
   tags = var.tags
 }
