@@ -4,6 +4,8 @@ locals {
 
   resource_group_name = "${local.name_prefix}-rg"
 
+  vnet_name = "${local.name_prefix}-vnet"
+
   common_tags = merge(
     {
       Environment = var.environment

@@ -7,3 +7,18 @@ module "resource_group" {
   location = var.location
   tags     = local.common_tags
 }
+module "network" {
+  source = "./modules/network"
+
+  resource_group_name = module.resource_group.name
+  location            = var.location
+
+  name = local.vnet_name
+
+  address_space            = var.vnet_address_space
+  public_subnet_prefix     = var.public_subnet_prefix
+  private_subnet_prefix    = var.private_subnet_prefix
+  management_subnet_prefix = var.management_subnet_prefix
+
+  tags = local.common_tags
+}
