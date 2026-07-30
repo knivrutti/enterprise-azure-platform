@@ -23,3 +23,17 @@ output "private_subnet_id" {
 output "management_subnet_id" {
   value = azurerm_subnet.management.id
 }
+output "public_nsg_id" {
+  description = "Public NSG ID."
+  value       = azurerm_network_security_group.public.id
+}
+
+output "private_nsg_id" {
+  description = "Private NSG ID."
+  value       = azurerm_network_security_group.private.id
+}
+
+output "management_nsg_id" {
+  description = "Management NSG ID."
+  value       = azurerm_network_security_group.management.id
+}
