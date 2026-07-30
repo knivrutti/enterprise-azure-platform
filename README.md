@@ -18,27 +18,30 @@ Additional modules will be added as the project evolves.
 - Production best practices
 - Git-based workflow
 
-Repository Layout
+## Repository Layout
 
+```text
 modules/
-    compute/
-    identity/
-    keyvault/
-    monitoring/
-    network/
-    storage/
+├── compute/
+├── network/
+├── storage/
+├── identity/
+├── keyvault/
+└── monitoring/
 
 environments/
-    dev/
-    qa/
-    prod/
+├── dev/
+├── qa/
+└── prod/
+```
 
-Getting Started
+## Getting Started
 
+```bash
 terraform init
 terraform validate
 terraform plan
-
+```
 Requirements
 
 Terraform >=1.5
