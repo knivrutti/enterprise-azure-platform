@@ -12,3 +12,14 @@ output "address_space" {
   description = "Virtual Network address space."
   value       = azurerm_virtual_network.this.address_space
 }
+output "public_subnet_id" {
+  value = azurerm_subnet.public.id
+}
+
+output "private_subnet_id" {
+  value = azurerm_subnet.private.id
+}
+
+output "management_subnet_id" {
+  value = azurerm_subnet.management.id
+}
