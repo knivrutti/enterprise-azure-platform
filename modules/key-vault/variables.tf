@@ -22,11 +22,6 @@ variable "sku_name" {
   description = "Key Vault SKU."
   type        = string
   default     = "standard"
-
-  validation {
-    condition     = contains(["standard", "premium"], var.sku_name)
-    error_message = "sku_name must be standard or premium."
-  }
 }
 
 variable "tags" {

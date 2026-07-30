@@ -31,3 +31,14 @@ module "storage" {
 
   tags = local.common_tags
 }
+module "key_vault" {
+  source = "./modules/key-vault"
+
+  name                = var.key_vault_name
+  resource_group_name = module.resource_group.name
+  location            = var.location
+
+  tenant_id = data.azurerm_client_config.current.tenant_id
+
+  tags = local.common_tags
+}

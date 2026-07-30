@@ -67,3 +67,7 @@ variable "storage_account_name" {
   description = "Globally unique storage account name."
   type        = string
 }
+variable "key_vault_name" {
+  description = "Globally unique Key Vault name."
+  type        = string
+}
