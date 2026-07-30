@@ -42,14 +42,16 @@ terraform init
 terraform validate
 terraform plan
 ```
-Requirements
+## Requirements
 
-Terraform >=1.5
-AzureRM Provider ~>4.0
+- Terraform >= 1.5
+- AzureRM Provider ~> 4.0
 
-Git Workflow
+## Git Workflow
 
+```bash
 git checkout main
 git pull
 git commit
 git push
+```
