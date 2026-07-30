@@ -1,11 +1,18 @@
 locals {
-  location = "East US"
 
-  resource_group_name = "kml_rg_main-d0c045516abe408f"
+  name_prefix = "${var.project_name}-${var.environment}"
 
-  common_tags = {
-    Environment = "Dev"
-    Project     = "EnterprisePlatform"
-    ManagedBy   = "Terraform"
-  }
+  resource_group_name = "${local.name_prefix}-rg"
+
+  common_tags = merge(
+    {
+      Environment = var.environment
+      Project     = var.project_name
+      ManagedBy   = "Terraform"
+      Owner       = var.owner
+      CostCenter  = var.cost_center
+    },
+    var.tags
+  )
+
 }
