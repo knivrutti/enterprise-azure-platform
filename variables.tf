@@ -63,3 +63,7 @@ variable "management_subnet_prefix" {
   type        = list(string)
   default     = ["10.0.3.0/24"]
 }
+variable "storage_account_name" {
+  description = "Globally unique storage account name."
+  type        = string
+}

@@ -22,3 +22,12 @@ module "network" {
 
   tags = local.common_tags
 }
+module "storage" {
+  source = "./modules/storage"
+
+  name                = var.storage_account_name
+  resource_group_name = module.resource_group.name
+  location            = var.location
+
+  tags = local.common_tags
+}
