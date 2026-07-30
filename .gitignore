@@ -4,9 +4,6 @@
 *.tfstate.*
 crash.log
 
-# Terraform Lock File
-.terraform.lock.hcl
-
 # Variable files
 *.tfvars
 !*.tfvars.example
