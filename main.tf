@@ -51,3 +51,23 @@ module "identity" {
 
   tags = local.common_tags
 }
+module "compute" {
+  source = "./modules/compute"
+
+  name                = local.vm_name
+  resource_group_name = module.resource_group.name
+  location            = var.location
+
+  subnet_id = module.network.management_subnet_id
+
+  vm_size        = local.vm_size
+  admin_username = local.admin_username
+
+  ssh_public_key = var.ssh_public_key
+
+  identity_id = module.identity.id
+
+  boot_diagnostics_storage_uri = module.storage.primary_blob_endpoint
+
+  tags = local.common_tags
+}

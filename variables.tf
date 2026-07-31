@@ -71,3 +71,16 @@ variable "key_vault_name" {
   description = "Globally unique Key Vault name."
   type        = string
 }
+variable "ssh_public_key" {
+  description = "SSH public key for the Linux VM."
+  type        = string
+
+  validation {
+    condition = (
+      startswith(var.ssh_public_key, "ssh-rsa ") ||
+      startswith(var.ssh_public_key, "ssh-ed25519 ") ||
+      startswith(var.ssh_public_key, "ecdsa-")
+    )
+    error_message = "Provide a valid SSH public key."
+  }
+}

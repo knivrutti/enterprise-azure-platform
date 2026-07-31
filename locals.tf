@@ -19,3 +19,10 @@ locals {
     var.tags
   )
 }
+locals {
+  # Existing locals...
+
+  vm_name        = "${local.name_prefix}-vm"
+  vm_size        = "Standard_B2s"
+  admin_username = "azureadmin"
+}
