@@ -6,6 +6,8 @@ locals {
 
   vnet_name = "${local.name_prefix}-vnet"
 
+  identity_name = "${local.name_prefix}-identity"
+
   common_tags = merge(
     {
       Environment = var.environment
@@ -16,5 +18,4 @@ locals {
     },
     var.tags
   )
-
 }

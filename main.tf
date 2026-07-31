@@ -42,3 +42,12 @@ module "key_vault" {
 
   tags = local.common_tags
 }
+module "identity" {
+  source = "./modules/identity"
+
+  name                = local.identity_name
+  resource_group_name = module.resource_group.name
+  location            = module.resource_group.location
+
+  tags = local.common_tags
+}
