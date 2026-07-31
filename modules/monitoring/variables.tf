@@ -1,6 +1,11 @@
 variable "name" {
-  description = "Key Vault name."
+  description = "Log Analytics Workspace name."
   type        = string
+
+  validation {
+    condition     = length(trim(var.name, " ")) > 0
+    error_message = "Workspace name cannot be empty."
+  }
 }
 
 variable "resource_group_name" {
@@ -13,24 +18,20 @@ variable "location" {
   type        = string
 }
 
-variable "tenant_id" {
-  description = "Azure AD Tenant ID."
-  type        = string
-}
-
-variable "sku_name" {
-  description = "Key Vault SKU."
-  type        = string
-  default     = "standard"
+variable "retention_in_days" {
+  description = "Workspace retention period."
+  type        = number
+  default     = 30
 
   validation {
-    condition     = contains(["standard", "premium"], var.sku_name)
-    error_message = "sku_name must be standard or premium."
+    condition     = var.retention_in_days >= 30 && var.retention_in_days <= 730
+    error_message = "Retention must be between 30 and 730 days."
   }
 }
 
 variable "tags" {
-  description = "Tags applied to the Key Vault."
+  description = "Resource tags."
   type        = map(string)
   default     = {}
 }
+

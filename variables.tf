@@ -84,3 +84,14 @@ variable "ssh_public_key" {
     error_message = "Provide a valid SSH public key."
   }
 }
+
+variable "log_analytics_retention_days" {
+  description = "Retention period for the Log Analytics Workspace."
+  type        = number
+  default     = 30
+
+  validation {
+    condition     = var.log_analytics_retention_days >= 30 && var.log_analytics_retention_days <= 730
+    error_message = "Retention must be between 30 and 730 days."
+  }
+}

@@ -8,6 +8,8 @@ locals {
 
   identity_name = "${local.name_prefix}-identity"
 
+  monitoring_name = "${local.name_prefix}-law"
+
   common_tags = merge(
     {
       Environment = var.environment

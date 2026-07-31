@@ -1,14 +1,14 @@
 output "id" {
-  description = "Key Vault resource ID."
-  value       = azurerm_key_vault.this.id
+  description = "Workspace ID."
+  value       = azurerm_log_analytics_workspace.this.id
+}
+
+output "workspace_id" {
+  description = "Workspace ID used by Azure Monitor."
+  value       = azurerm_log_analytics_workspace.this.workspace_id
 }
 
 output "name" {
-  description = "Key Vault name."
-  value       = azurerm_key_vault.this.name
-}
-
-output "vault_uri" {
-  description = "Key Vault URI."
-  value       = azurerm_key_vault.this.vault_uri
+  description = "Workspace name."
+  value       = azurerm_log_analytics_workspace.this.name
 }
