@@ -25,6 +25,13 @@ jobs:
         with:
           terraform_version: 1.15.0
 
+      - name: Verify GitHub Secret
+        run: |
+          echo "Testing secret access..."
+          echo "Length: ${#MY_SECRET}"
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+            
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
 
